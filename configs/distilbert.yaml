@@ -1,0 +1,23 @@
+model:
+  name: distilbert-base-uncased
+  max_length: 256
+  num_labels: 2
+
+training:
+  output_dir: experiments/distilbert_v1
+  learning_rate: 5e-5
+  batch_size: 16
+  epochs: 3
+  weight_decay: 0.01
+  logging_steps: 10
+  evaluation_strategy: epoch
+  save_strategy: epoch
+  save_total_limit: 5
+  load_best_model_at_end: true
+  metric_for_best_model: f1
+
+data:
+  processed_path: data/processed/imdb_tokenized
+  processed_path_debug: data/processed/imdb_tokenized_withtext
+  text_column: text
+  label_column: labels
