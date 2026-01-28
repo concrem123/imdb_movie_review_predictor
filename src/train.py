@@ -14,13 +14,32 @@ def train(cfg):
     
     training_args = TrainingArguments(
         output_dir=cfg["training"]["output_dir"],
-        eval_strategy="epoch",
+
+        # evaluation & logging
+        evaluation_strategy="epoch",
+        logging_strategy="steps",
+        logging_steps=100,
+
+
+        # Training params
         per_device_train_batch_size=cfg["training"]["batch_size"],
+        per_device_eval_batch_size=cfg["training"]["batch_size"],
         num_train_epochs=cfg["training"]["epochs"],
         learning_rate=float(cfg["training"]["learning_rate"]),
         weight_decay=cfg["training"]["weight_decay"],
+
+        #  Model selection
+        load_best_model_at_end=True,
+        metric_for_best_model="eval_loss",
+        greater_is_better=False,
+
+        #  Output
         logging_dir=f"{cfg['training']['output_dir']}/logs",
-        report_to="tensorboard"
+        report_to="tensorboard",
+
+        # GPU/Colab friendly
+        fp16=True,
+        save_strategy="epoch",
     )
 
     trainer = Trainer(
