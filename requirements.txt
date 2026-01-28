@@ -13,3 +13,4 @@ fastapi
 uvicorn
 evaluate
 accelerate
+scikit-learn
