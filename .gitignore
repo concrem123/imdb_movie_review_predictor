@@ -6,3 +6,52 @@ training.ipynb
 __pycache__/
 *.pyc
 .venv/
+
+data/
+data/**
+
+data.zip
+
+# Ignore HuggingFace checkpoints
+experiments/distilbert_v1/checkpoint-*/
+
+# Ignore TensorBoard / logs
+experiments/distilbert_v1/logs/
+
+experiments/distilbert_v1/final/
+
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Data (large / generated)
+data/
+data.zip
+*.arrow
+*.icloud
+
+# HuggingFace / datasets cache
+~/.cache/huggingface/
+~/.cache/huggingface/datasets/
+
+# Experiments (checkpoints, models, logs)
+experiments/*/checkpoint-*/
+experiments/*/final/
+experiments/*/logs/
+
+# Jupyter / IPython
+.ipynb_checkpoints/

@@ -8,7 +8,7 @@ training:
   learning_rate: 5e-5
   batch_size: 16
   epochs: 3
-  weight_decay: 0.01
+  optimizer: adamw_torch
   logging_steps: 10
   evaluation_strategy: epoch
   save_strategy: epoch
