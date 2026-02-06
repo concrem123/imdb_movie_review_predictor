@@ -40,9 +40,9 @@ def evaluate(cfg):
 
     predictions = trainer.predict(dataset["test"])
     pred_labels = np.argmax(predictions.predictions, axis=1)
-    true_labels = dataset["test"]["labels"]
+    true_labels = dataset["test"]["label"]
 
-    label_col = "labels" if "labels" in dataset["test"].column_names else "label"
+    label_col = "label" if "label" in dataset["test"].column_names else "label"
     true_labels = dataset["test"][label_col]
 
     print(classification_report(true_labels, pred_labels))
